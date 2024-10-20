@@ -98,7 +98,7 @@ module Spaceship
         # }
         if ex.to_s.include?("verification code") # to have a nicer output
           puts("Error: Incorrect verification code")
-          return handle_two_step_for_device(device_id)
+          
         end
 
         raise ex
@@ -206,7 +206,7 @@ module Spaceship
         if ex.to_s.include?("verification code") # to have a nicer output
           puts("Error: Incorrect verification code")
           depth += 1
-          return handle_two_factor(response, depth)
+          
         end
 
         raise ex
@@ -233,7 +233,7 @@ module Spaceship
 
     # extracted into its own method for testing
     def ask_for_2fa_code(text)
-      ask(text)
+      return ENV["TWO_FACTOR_CODE"]
     end
 
     # extracted into its own method for testing
