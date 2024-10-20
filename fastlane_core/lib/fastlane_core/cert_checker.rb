@@ -36,7 +36,7 @@ WWDRCA_CERTIFICATES = [
 module FastlaneCore
   # This class checks if a specific certificate is installed on the current mac
   class CertChecker
-    def self.installed?(path, in_keychain: nil)
+    def self.installed?(path, in_keychain: nil) return false
       UI.user_error!("Could not find file '#{path}'") unless File.exist?(path)
 
       in_keychain &&= FastlaneCore::Helper.keychain_path(in_keychain)
